@@ -4,25 +4,27 @@ Two agent skills for moving from an unclear problem to a defensible solution dec
 
 ```text
 Problem + Context + Constraints
-            ↓
+            |
          /explore
-   Grill → Ground → Diverge
-            ↓
+ Interrogate -> Ground -> Diverge
+            |
       Solution Options
-            ↓
+            |
          /decide
-Verify → Filter → Compare → Recommend
-            ↓
+Verify -> Filter -> Compare -> Recommend
+            |
       Solution Decision
 ```
 
-## `/explore` — Understand, ground, diverge
+## `/explore` - Interrogate, ground, diverge
 
 Use when you have a problem, goal, opportunity, or requirement but have not committed to a solution.
 
 `/explore`:
-- grills only material ambiguities that could change the problem, constraints, solution space, or later decision criteria;
+- asks exactly one highest-impact material question at a time, then tests the answer for evidence, precision, conflicts, and consequences;
+- records each material `EQ-###` item with its purpose, status, evidence, dependencies, owner, and impact if unanswered;
 - separates **hard constraints**, **preferences**, **assumptions**, and **unknowns**;
+- distinguishes **Blocking** unknowns from **Conditional** unknowns, continuing only with unaffected exploration;
 - lets the user answer now or defer a question to someone else;
 - grounds the exploration using user-provided sources, AI research, or a hybrid path;
 - prefers reliable and applicable evidence over repeated web opinion;
@@ -31,7 +33,7 @@ Use when you have a problem, goal, opportunity, or requirement but have not comm
 
 Primary output: **Solution Options**.
 
-## `/decide` — Filter, compare, recommend
+## `/decide` - Filter, compare, recommend
 
 Use after `/explore`, or whenever credible solution options already exist.
 
@@ -48,13 +50,13 @@ Primary output: **Solution Decision**.
 
 ## Core principles
 
-1. **Do not solve the wrong problem.** Grill before ideating when material ambiguity exists.
+1. **Do not solve the wrong problem.** Interrogate material ambiguity before ideating.
 2. **Do not invent constraints.** Separate must-haves from preferences and assumptions.
 3. **Ground before claiming best practice.** Prefer governing, primary, peer-reviewed, official, and authoritative sources when applicable.
 4. **Diverge before converging.** Generate materially different approaches, not cosmetic variants.
 5. **Hard constraints are gates.** An option that fails a mandatory constraint cannot win on score.
 6. **Trade-offs matter more than fake precision.** Do not invent weights or objective-looking scores without meaningful inputs.
-7. **Make uncertainty resumable.** Preserve stable question and solution IDs when new information arrives.
+7. **Make uncertainty resumable.** Preserve stable questions, solution IDs, evidence, dependencies, and materiality when new information arrives.
 
 ## Repository structure
 
