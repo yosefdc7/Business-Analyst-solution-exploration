@@ -38,10 +38,11 @@ Primary output: **Solution Options**.
 Use after `/explore`, or whenever credible solution options already exist.
 
 `/decide`:
-- verifies that the decision basis is comparable;
+- asks one highest-impact decision question at a time, then re-ranks transparently when an answer changes the case;
+- records material `DQ-###` items with purpose, evidence, affected ranking, and unresolved impact;
 - treats hard constraints as **gates, not weighted scoring factors**;
 - compares only viable options using decision-relevant criteria;
-- defaults to qualitative comparison to avoid false precision;
+- uses qualitative comparison by default and an evidence-backed Pugh matrix when a structured baseline comparison is useful;
 - makes gains, sacrifices, and conditional trade-offs explicit;
 - ranks viable `SO-###` options; and
 - recommends one direction, a runner-up, confidence, and what could change the decision.
@@ -56,7 +57,7 @@ Primary output: **Solution Decision**.
 4. **Diverge before converging.** Generate materially different approaches, not cosmetic variants.
 5. **Hard constraints are gates.** An option that fails a mandatory constraint cannot win on score.
 6. **Trade-offs matter more than fake precision.** Do not invent weights or objective-looking scores without meaningful inputs.
-7. **Make uncertainty resumable.** Preserve stable questions, solution IDs, evidence, dependencies, and materiality when new information arrives.
+7. **Make uncertainty resumable.** Preserve stable questions, solution IDs, evidence, dependencies, materiality, and ranking changes when new information arrives.
 
 ## Repository structure
 

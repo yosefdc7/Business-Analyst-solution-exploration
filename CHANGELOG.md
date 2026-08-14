@@ -2,6 +2,15 @@
 
 Notable changes to **Business Analyst: Solution Exploration** are recorded here.
 
+## 0.3.0 - 2026-08-14
+
+### Changed
+- Strengthened `/decide` with a one-question-at-a-time decision interrogation loop, including the explicit rule: “Ask one highest-impact decision question at a time.”
+- Added a resumable `DQ-###` decision-question register for ranking-sensitive evidence, priorities, and unresolved impacts.
+- Added transparent partial re-ranking when a new answer, constraint, priority, evidence item, or option changes the decision model.
+- Added optional Pugh-matrix comparison with a stated reference option, defined criteria, `+` / `0` / `-` scores, evidence for each score, and safeguards against false precision.
+- Preserved hard constraints as pre-comparison gates and made Pugh totals non-decisive.
+
 ## 0.2.0 - 2026-08-13
 
 ### Changed
