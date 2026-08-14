@@ -22,6 +22,7 @@ Use when you have a problem, goal, opportunity, or requirement but have not comm
 
 `/explore`:
 - asks exactly one highest-impact material question at a time, then tests the answer for evidence, precision, conflicts, and consequences;
+- uses a detective analogy for the interrogation process and requires a bounded analogy for every solution option;
 - records each material `EQ-###` item with its purpose, status, evidence, dependencies, owner, and impact if unanswered;
 - separates **hard constraints**, **preferences**, **assumptions**, and **unknowns**;
 - distinguishes **Blocking** unknowns from **Conditional** unknowns, continuing only with unaffected exploration;
@@ -42,7 +43,8 @@ Use after `/explore`, or whenever credible solution options already exist.
 - records material `DQ-###` items with purpose, evidence, affected ranking, and unresolved impact;
 - treats hard constraints as **gates, not weighted scoring factors**;
 - compares only viable options using decision-relevant criteria;
-- uses qualitative comparison by default and an evidence-backed Pugh matrix when a structured baseline comparison is useful;
+- requires a Pugh matrix whenever at least two viable options remain, with a defensible baseline, defined criteria, importance levels, evidence-backed `+` / `0` / `-` / `?` cells, and solution comparison cards;
+- uses detailed pairwise comparisons for the strongest two or three contenders;
 - makes gains, sacrifices, and conditional trade-offs explicit;
 - ranks viable `SO-###` options; and
 - recommends one direction, a runner-up, confidence, and what could change the decision.
@@ -58,6 +60,7 @@ Primary output: **Solution Decision**.
 5. **Hard constraints are gates.** An option that fails a mandatory constraint cannot win on score.
 6. **Trade-offs matter more than fake precision.** Do not invent weights or objective-looking scores without meaningful inputs.
 7. **Make uncertainty resumable.** Preserve stable questions, solution IDs, evidence, dependencies, materiality, and ranking changes when new information arrives.
+8. **Explain without misleading.** Use analogies to clarify solutions, state where they break, and never treat them as evidence.
 
 ## Repository structure
 

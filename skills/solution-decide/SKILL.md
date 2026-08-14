@@ -1,9 +1,9 @@
 ---
 name: solution-decide
-description: Interrogate decision priorities one high-impact question at a time, filter options against hard constraints, compare trade-offs with optional Pugh analysis, re-rank transparently, and recommend a direction.
+description: Interrogate decision priorities one high-impact question at a time, filter options against hard constraints, compare every viable solution with a Pugh matrix and bounded analogies, re-rank transparently, and recommend a direction.
 license: MIT
 metadata:
-  version: "0.2.0"
+  version: "0.3.0"
 ---
 
 # Solution Decide
@@ -19,7 +19,7 @@ Use after `solution-explore`, or whenever the user already has multiple solution
 
 ## Mental Model
 
-Act as a tribunal, not a brainstorm. `solution-explore` investigates the problem and creates the candidate set. `solution-decide` evaluates those serious candidates against the user's actual priorities, rejects candidates that fail non-negotiables, and explains the resulting choice.
+Act as a tribunal, not a brainstorm. `solution-explore` is the detective that investigates the problem and creates the candidate set. `solution-decide` is the tribunal that admits only viable candidates, hears each solution's case, compares them against the user's actual priorities, rejects candidates that fail non-negotiables, and explains the resulting choice. The Pugh matrix is the visible court record: it organizes comparisons but never replaces judgment.
 
 `VERIFY -> FILTER -> COMPARE -> RECOMMEND -> RE-RANK WHEN MATERIAL INPUT CHANGES`
 
@@ -115,20 +115,38 @@ Prefer qualitative comparison when no meaningful quantitative inputs exist:
 
 Use numeric weights or scores only when the user requests them or meaningful quantitative inputs already exist. Never invent weights and present the result as objective.
 
-### Optional Pugh matrix
+### Required Pugh matrix and solution comparison
 
-Use a Pugh matrix when the user requests it or when three to five serious viable alternatives need a structured side-by-side comparison.
+Whenever at least two viable options remain after hard-constraint filtering, produce a Pugh matrix. If fewer than two viable options remain, state why a Pugh comparison is not applicable.
 
-1. Choose and state a defensible reference option, normally the current state or an agreed default.
-2. Define the material criteria and the meaning of better, equal, and worse before scoring.
-3. Compare each viable option against the reference, one criterion at a time:
+1. Use the current state as the reference only when it is a real, understood option. Otherwise ask one highest-impact `DQ-###` question to select an explicit reference; never silently choose a favored solution.
+2. Derive the comparison criteria from the user's needs and the meaningful differences between solutions. Use Cost, Performance & Quality, Feasibility & Production, Time & Risk, and Strategic Fit as a coverage checklist, not mandatory rows. Define each selected criterion and the meaning of better, equal, and worse before scoring.
+3. Assign each selected criterion an importance of **Critical**, **High**, **Medium**, or **Low**. Do not invent numeric weights.
+4. Compare every viable option against the reference, one criterion at a time:
    - `+` = better than the reference
    - `0` = no material difference
    - `-` = worse than the reference
-4. Record the evidence or rationale for every score.
-5. Count pluses and minuses only as a discussion aid. Inspect the pattern, critical weaknesses, and uncertainty before ranking.
+   - `?` = insufficient or conflicting evidence
+5. Record evidence or rationale for every score. Do not convert `?` into a guess.
+6. Count pluses and minuses only as a discussion aid. Inspect the pattern, critical weaknesses, importance, and uncertainty before ranking.
+7. Reserve detailed pairwise comparisons for the strongest two or three contenders. State `SO-X beats SO-Y when...` and the reverse condition for each included pairing; keep all other viable solutions visible in the matrix.
 
 The Pugh matrix must not override hard-constraint gates, conceal a critical trade-off, double count overlapping criteria, or create false precision. A high total is not automatically the recommendation.
+
+### Solution comparison card
+
+For every viable `SO-###`, preserve the analogy from `solution-explore` and include:
+- **Analogy**
+- **Analogy mapping**
+- **Where the analogy breaks**
+- **How it differs from the reference**
+- **You gain**
+- **You give up**
+- **Best when** and **Avoid when**
+- **Dependencies and evidence strength**
+- **Conditions that could improve or weaken its ranking**
+
+Refine an analogy only when the comparison exposes a material distinction. Retain the `SO-###` ID and explain the refinement. An analogy is explanatory context, not evidence.
 
 ### Trade-off analysis
 
@@ -138,7 +156,7 @@ For each serious candidate state:
 - **Best when**
 - **Avoid when**
 
-For the top two options explicitly state:
+For the strongest two or three options explicitly state:
 - **SO-X beats SO-Y when...**
 - **SO-Y beats SO-X when...**
 
@@ -200,7 +218,7 @@ Material `DQ-###` items with purpose, status, materiality, evidence status, affe
 For each option: Pass / Unclear / Fail, with the reason.
 
 ### 4. Comparison
-A qualitative trade-off matrix using the decision's material criteria. Include a Pugh matrix only when used, with reference option, criteria definitions, `+` / `0` / `-` scores, and rationale.
+Include every viable option in a Pugh matrix whenever at least two viable options remain. Show the reference, criteria definitions, importance, `+` / `0` / `-` / `?` scores, and evidence or rationale. Include solution comparison cards for every viable option and detailed pairwise comparisons for the strongest two or three contenders.
 
 ### 5. Ranking
 Rank viable options only. Explain each change from a prior ranking.
@@ -232,7 +250,8 @@ Decision analysis is complete when:
 - hard constraints have been applied as gates;
 - the decision-question register makes ranking-sensitive uncertainty visible;
 - surviving options are compared on defined, meaningful criteria;
-- any Pugh analysis is evidence-backed and interpreted rather than blindly totaled;
+- the required Pugh analysis is evidence-backed and interpreted rather than blindly totaled;
+- every viable solution has a bounded analogy and comparison card;
 - trade-offs are explicit;
 - ranking avoids false precision and is updated for material new information;
 - the recommendation explains why the winner beats the runner-up; and

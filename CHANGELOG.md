@@ -2,6 +2,15 @@
 
 Notable changes to **Business Analyst: Solution Exploration** are recorded here.
 
+## 0.4.0 - 2026-08-15
+
+### Changed
+- Added a detective analogy and bounded analogy requirements for every explored solution.
+- Made Pugh comparison mandatory whenever at least two viable solutions survive filtering.
+- Added reference-baseline rules, need-derived criteria, Critical/High/Medium/Low importance, `?` evidence cells, and rationale for every Pugh cell.
+- Added solution comparison cards for every viable option and detailed pairwise comparisons for the strongest two or three contenders.
+- Preserved the one-highest-impact-question rule, hard-constraint gates, and non-decisive interpretation of Pugh totals.
+
 ## 0.3.0 - 2026-08-14
 
 ### Changed

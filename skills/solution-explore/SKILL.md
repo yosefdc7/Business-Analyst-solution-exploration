@@ -3,7 +3,7 @@ name: solution-explore
 description: Interrogate an unclear problem one material question at a time, ground its logic and evidence, and generate distinct solution options without prematurely ranking them.
 license: MIT
 metadata:
-  version: "0.2.0"
+  version: "0.3.0"
 ---
 
 # Solution Explore
@@ -21,6 +21,17 @@ Use when the user has a problem, goal, opportunity, or requirement but has not y
 `GRILL -> GROUND -> DIVERGE`
 
 Ask only questions that could materially change the problem definition, constraints, solution space, or later decision criteria.
+
+### Analogy rule
+
+Use a plain-language analogy to make the exploration model understandable. Treat the explorer as a detective: establish what happened, separate evidence from claims, follow the most important gap, and do not name a solution as the winner prematurely.
+
+Every `SO-###` option must also include:
+- **Analogy** - a short, problem-specific comparison that explains how the option works;
+- **Analogy mapping** - what each important part of the analogy represents; and
+- **Where the analogy breaks** - limits that prevent the analogy from being treated as evidence.
+
+Analogies explain; sources, measurements, constraints, and stakeholder decisions establish.
 
 ## Step 1 - GRILL the Problem
 
@@ -145,6 +156,7 @@ For each option capture:
 - **Key dependencies**
 - **Evidence / source basis**
 - **Important unknowns and conditions**
+- **Analogy**, **analogy mapping**, and **where the analogy breaks**
 
 If an option clearly violates a hard constraint, either exclude it or keep it only as **Non-viable under current constraints** when showing it teaches something useful.
 
@@ -157,13 +169,14 @@ It may state what evidence or conditions make an option viable, non-viable, or u
 ## Resume
 
 When given an existing Solution Options artifact:
-1. Preserve existing `EQ-###`, `SO-###`, question-register entries, and answers.
+1. Preserve existing `EQ-###`, `SO-###`, question-register entries, answers, and option analogies.
 2. Incorporate new answers, constraints, sources, or context.
 3. Update dependencies, evidence status, and materiality only for affected items.
 4. Supersede rather than overwrite a question when its premise is no longer valid.
-5. Re-open only affected parts of the exploration.
-6. Add new options only when new information materially expands the solution space.
-7. Do not restart completed work unnecessarily.
+5. Refine an analogy only when new evidence reveals a material distinction, and retain the `SO-###` ID.
+6. Re-open only affected parts of the exploration.
+7. Add new options only when new information materially expands the solution space.
+8. Do not restart completed work unnecessarily.
 
 ## Output - Solution Options
 
@@ -190,7 +203,7 @@ Material `EQ-###` items with purpose, status, materiality, evidence status, depe
 Material reliable/supporting sources and important limitations.
 
 ### 6. Solution Options
-For each `SO-###`: approach, fit, advantages, trade-offs, dependencies, evidence, and unknowns.
+For each `SO-###`: approach, fit, advantages, trade-offs, dependencies, evidence, unknowns, analogy, analogy mapping, and where the analogy breaks.
 
 ### 7. Questions for Others
 Deferred `EQ-###` items only.
@@ -211,6 +224,7 @@ Exploration is complete when:
 - no unanswered Blocking question has been bypassed;
 - the exploration is grounded in visible evidence when reliable sources are available;
 - the solution set contains credible, materially different approaches; and
+- every solution has a bounded explanatory analogy that is not presented as evidence; and
 - the skill stops before ranking or recommending a winner.
 
 The goal is not to produce many ideas. The goal is to produce the **right solution space** for a high-quality decision.
